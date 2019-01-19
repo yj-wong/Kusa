@@ -18,6 +18,11 @@
   margin: auto;
 }
 
+img{
+  margin-top: 10%;
+  margin-bottom: -100px;
+}
+
 .App-link {
   color: #61dafb;
 }
