@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Feedback from './Feedback';
 
 class App extends Component {
   toScan() {
