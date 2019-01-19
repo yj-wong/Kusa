@@ -10,6 +10,8 @@ class TakePhoto extends Component {
         
 
         };
+
+        this.onTakePhoto = this.onTakePhoto.bind(this);
     }
     
     onCameraError (error) {
@@ -50,7 +52,7 @@ class TakePhoto extends Component {
         console.log(123)
         return res.json()
       }).then((data) => {
-        console.log(data)
+        this.props.callBack(data)
       });
     }
    
