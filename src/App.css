@@ -16,12 +16,17 @@
   min-height: 60vh;
   max-width: 80%;
   margin: auto;
-  margin-bottom: -50px;
+  margin-bottom: -70px;
+}
+
+.App-header p{
+  font-family: "Verdana";
+  font-size: 15px;
 }
 
 img{
   margin-top: 10%;
-  margin-bottom: -70px;
+  margin-bottom: -90px;
 }
 
 .App-link {

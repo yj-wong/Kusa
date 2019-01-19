@@ -48,20 +48,23 @@ class Feedback extends Component {
 class Items extends Component {
     render() {
         const { items } = this.props;
-        const itemList = items.map(item => {
-            return( 
-                <div className="item" key={item.id}>
-                <div>Type: { item.type }</div>
-                <div>Amount: { item.amount }</div>
-                </div>
-            )
-        })
+        // const itemList = items.map(item => {
+        //     return( 
+        //         <div className="item" key={item.id}>
+        //         <div>Type: { item.type }</div>
+        //         <div>Amount: { item.amount }</div>
+        //         </div>
+        //     )
+        // })
             
+        // return(
+        //     <div className="item-list">
+        //     { itemList }
+        //     </div>
+        // )
         return(
-            <div className="item-list">
-            { itemList }
-            </div>
-        )
+            <p>there should be something</p>
+            )
     }
 }
 
