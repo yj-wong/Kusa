@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {Router, Route, IndexRoute, BrowserRouter} from 'react-router';
+import Feedback from './Components/Feedback/Feedback';
+import Score from './Components/Score/Score';
 import TakePhoto from './Components/TakePhoto/TakePhoto';
 
 ReactDOM.render(<App />, document.getElementById('root'));

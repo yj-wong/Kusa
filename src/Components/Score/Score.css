@@ -1,12 +1,12 @@
-.App {
+.Score {
   text-align: center;
-  background-image: url("homebg.png");  
+  background-image: url("bg.png");  
   min-height: 100vh;
   background-size: 100vh;
   background-position: center;
 }
 
-.App-header {
+.Score-header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,21 +16,17 @@
   min-height: 60vh;
   max-width: 80%;
   margin: auto;
-  margin-top: -100px;
-  margin-bottom: -90px;
+  margin-bottom: -70px;
+  margin-top: -160px;
+  line-height: 4vh;
 }
 
-.App-header p{
+.Score-header p{
   font-family: "Verdana";
-  font-size: 15px;
+  font-size: 3vh;
 }
 
-img{
-  margin-top: 10%;
-  margin-bottom: 200px;
-}
-
-.App-link {
+.Score-link {
   color: #61dafb;
 }
 
@@ -41,4 +37,15 @@ button {
   border: none;
   margin: 2%;
   box-shadow: 0 5px 10px 0 rgba(255, 255, 255, 0.10);
+}
+
+circle{
+  margin-top: 100px;
+}
+
+.homebtn{
+  display: inline;
+  float: left;
+  margin-left: 30%;
+  margin-right: -25%;
 }
