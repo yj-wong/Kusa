@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Feedback.css';
+import home from './Hotel-suite-living-room.jpg';
 
 class Feedback extends Component {
     constructor(props) {
@@ -27,15 +28,15 @@ class Feedback extends Component {
     render() {
         return (
             <div className="Feedback">
+                <img src={home} alt="home" width="60%"/>
                 <header className="Feedback-header">
                     Items Recognized:
                 </header>
-                <div className="score">
-                    Score:
-                    52
-                </div>
                 <div className="items"> 
                     <Items items={this.state.items}/>
+                </div>
+                <div>
+                    <button onClick={this.toOverall}>Get Overall Feedback</button>
                 </div>
                 <div>
                     <button onClick={this.toHome}>Home</button>

@@ -6,8 +6,9 @@ import * as serviceWorker from './serviceWorker';
 import {Router, Route, IndexRoute, BrowserRouter} from 'react-router';
 import Feedback from './Components/Feedback/Feedback';
 import Score from './Components/Score/Score';
+import TakePhoto from './Components/TakePhoto/TakePhoto';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<TakePhoto />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
