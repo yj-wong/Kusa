@@ -3,7 +3,6 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import logo from './kusalogoblack.png';
 import Feedback from './Feedback';
-// using an ES6 transpiler, like babel
 
 class App extends Component {
   toScan() {
