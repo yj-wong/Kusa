@@ -1,0 +1,44 @@
+.Feedback {
+    text-align: center;
+    background-color: #282c34;
+    background-image: url("bg.png");
+    background-size: 100vh;
+    background-position: center;
+    min-height: 100vh;
+  }
+  
+  .Feedback-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(12px + 2vmin);
+    font-weight: bold;
+    color: white;
+    min-height: 20vh;
+    max-width: 80%;
+  }
+  
+.item {
+    margin-left: 5ch;
+    margin-top: 5vh;
+    margin-bottom: 2ch;
+    text-align: left;
+    color: white;
+}
+
+button {
+    color: white;
+    background-color: rgb(61, 100, 199);
+    padding: 2% 5%;
+    border: none;
+    margin: 2%;
+    box-shadow: 0 5px 10px 0 rgba(255, 255, 255, 0.10);
+  }
+  
+  
+  .score {
+        font-size: 5vh;
+        color: white;
+  }
+  
