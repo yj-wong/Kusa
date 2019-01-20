@@ -84,36 +84,69 @@ class TakePhoto extends Component {
         for (var i = 0; i < allData.length; i++) {
           allDescriptions.push(allData[i].description);
         }  
+
+        var water_list = [
+          'Water', 'Water fixture', 'Tap', 'Tap water', 'Plumbing', 'Plumbing fixture', 'Drop', 'Fountain', 'Fluid', 'Faucet'
+        ]
+        
+        var energy_list = [
+          'Light', 'Electricity', 'Lamp', 'Electronics', 'Bulb', 'Light bulb', 'Lighting', 'Light fixture'  
+        ]
+
+        var paper_list = [
+          'Paper', 'Napkin', 'Tissue', 'Paper product', 'Scrap paper'
+        ]
+
+        var disposable_list = [
+          'Can', 'Drink', 'Bottle', 'Beverage', 'Alchoholic beverages', 'Energy drink', 'Soda', 'Fizzy drink',
+          'Aluminum can', 'Tin can', 'Aluminum', 'Tin', 'Product',
+          'Plastic', 'Plastic Spoon', 'Plate', 'Tableware', 'Serveware', 'Dishware',
+          'Paper cup', 'Food container', 'Food storage container','Container', 'Polysterene', 
+        ]
+
+        var garbage_list = [
+          'Trash', 'Garbage', 'Rubbish', 'Waste', 'Litter', 'Pollution', 'Plastic', 'Scrap', 'Recycling', 'Plastic'
+        ]
+
         console.log(allDescriptions)
         // Water waste
-        if(allDescriptions.includes("Water") && allDescriptions.includes("Tap") && !allDescriptions.includes("Person")){
+        for (i = 0; i < water_list.length; i++) {
+          if (allDescriptions.includes(water_list[i])) {
             category.Water_Saving.score -= 10 ;
             category.Water_Saving.suggestion = "You are wasting water, please make sure you turn off the tap. Please take a moment and read the following article: https://www.forbes.com/sites/quora/2016/07/19/why-wasting-water-is-a-much-bigger-problem-than-you-think/#27707df5af2e"
+          }
         }
+
+        
         //Energy waste
-        if(allDescriptions.includes("Light") || allDescriptions.includes("Electricity") || allDescriptions.includes("Lamp") || allDescriptions.includes("Electronics") ){
+        for (i = 0; i < energy_list.length; i++) {
+          if (allDescriptions.includes(energy_list[i])) {
             category.Energy_Saving.score -= 25 ;
             category.Energy_Saving.suggestion = "Please make sure the lights are turned off if the room is not used by anyone else. Please take a moment and read the following article: https://www.energy.gov/energysaver/save-electricity-and-fuel"
- 
+          }
         }
 
         //Paper waste
-        if(allDescriptions.includes("Paper") || allDescriptions.includes("Cloth Napkins") ){
-          category.Paper_Saving.score -= 5 ;
-          category.Paper_Saving.suggestion = "You are using disposable paper product, please avoid using these if possisble to conserve our forest. Please take a moment and read the following article: http://www.theworldcounts.com/stories/Environmental_Impact_of_Paper_Production"
-
+        for (i = 0; i < paper_list.length; i++) {
+          if (allDescriptions.includes(energy_list[i])) {
+            category.Paper_Saving.score -= 10 ;
+            category.Paper_Saving.suggestion = "You are using disposable paper product, please avoid using these if possisble to conserve our forest. Please take a moment and read the following article: http://www.theworldcounts.com/stories/Environmental_Impact_of_Paper_Production"
+          }
         }
-        //disposible utensils
-        if(allDescriptions.includes("Disposable") || allDescriptions.includes("Aluminum foil") || allDescriptions.includes("Aluminum Pans") || allDescriptions.includes("Energy drink") || allDescriptions.includes("Fizzy Drinks") ){
-          category.Disposable_product_saving.score -= 15 ;
-          category.Disposable_product_saving.suggestion = "You should stop using disposable products and please make sure they are all recycled. Please take a moment and read the following article: https://www.dawn.com/news/1052157"
 
+        //disposible utensils
+        for (i = 0; i < disposable_list.length; i++) {
+          if (allDescriptions.includes(disposable_list[i])) {
+            category.Disposable_product_saving.score -= 15 ;
+            category.Disposable_product_saving.suggestion = "You should stop using disposable products and please make sure they are all recycled. Please take a moment and read the following article: https://www.dawn.com/news/1052157"
+          }
         }
         //garbage collection
-        if((allDescriptions.includes("Waste") || allDescriptions.includes("Garbage")) && !allDescriptions.includes("Garbage Can") ){
-          category.Garbage_collection.score -= 15 ;
-          category.Garbage_collection.suggestion = "Garbage should be collected, but it seems they are not. Please take a moment and read the following article: https://www.linkedin.com/pulse/importance-waste-management-recycling-dee-mohammed/"
-
+        for (i = 0; i < garbage_list.length; i++) {
+          if (allDescriptions.includes(garbage_list[i])) {
+            category.Garbage_collection.score -= 15 ;
+            category.Garbage_collection.suggestion = "Garbage should be collected, but it seems they are not. Please take a moment and read the following article: https://www.linkedin.com/pulse/importance-waste-management-recycling-dee-mohammed/"
+          }
         }
         
         console.log(data)
