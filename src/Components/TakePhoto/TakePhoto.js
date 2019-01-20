@@ -75,7 +75,6 @@ class TakePhoto extends Component {
         
         return res.json()
       }).then((data) => {
-<<<<<<< HEAD
         var score = 100;
         console.log(data)
         
