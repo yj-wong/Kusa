@@ -1,30 +1,25 @@
 import React, { Component } from 'react';
 import './Feedback.css';
 import home from './Hotel-suite-living-room.jpg';
+import Score from '../Score/Score';
 
 class Feedback extends Component {
     constructor(props) {
         super(props);
         this.state = {
-        
 
-        };
-    }
-    toHome() {
-        
+        items: [
+          { type: 'plastic bottles', score: 3, suggestion: "", id: 1 },
+          { type: 'running water faucet', score: 1, suggestion: "", id: 2 }
+        ]
+      }
     }
 
     getScore() {
 
     }
 
-    state = {
-
-        items: [
-          { type: 'plastic bottles', amount: 3, id: 1 },
-          { type: 'running water faucet', amount: 1, id: 2 }
-        ]
-      }
+    
     render() {
         return (
             <div className="Feedback">
@@ -36,36 +31,61 @@ class Feedback extends Component {
                     <Items items={this.state.items}/>
                 </div>
                 <div>
-                    <button onClick={this.toOverall}>Get Overall Feedback</button>
+                    <button onClick={this.toOverall}>Get Overall Score</button>
                 </div>
                 <div>
-                    <button onClick={this.toHome}>Home</button>
+                    <button onClick={this.props.callBack}>Home</button>
                 </div>
             </div>           
         );
     }
 }
 
-class Items extends Component {
-    render() {
-        const { items } = this.props;
-        // const itemList = items.map(item => {
-        //     return( 
-        //         <div className="item" key={item.id}>
-        //         <div>Type: { item.type }</div>
-        //         <div>Amount: { item.amount }</div>
-        //         </div>
-        //     )
-        // })
+
+// function Items(props) {
+//     const items = props.items;
+
+//     const itemList = items.map((item) => {
+//         <div className="item">
+//             <div>Type: { item.type }</div>
+//             <div>Amount: { item.amount }</div>
+//         </div>
+//     });
             
-        // return(
-        //     <div className="item-list">
-        //     { itemList }
-        //     </div>
-        // )
-        return(
-            <p>there should be something</p>
+//     return(
+//         <div className="item-list">
+//         { itemList }
+//         </div>
+//     );
+// }
+
+class Items extends Component {
+
+    constructor(props){
+        super(props);
+
+    }
+    
+
+    render() {
+        const items = this.props.items;
+        const itemList = items.map(item => {
+            return( 
+                <div className="item" key={item.id}>
+                <div>Type: { item.type }</div>
+                <div>Amount: { item.amount }</div>
+                </div>
             )
+        })
+            
+        return(
+            <div className="item-list">
+            { itemList }
+            </div>
+        )
+        // return(
+        //     <p>there should be something</p>
+        //     )
     }
 }
 

@@ -15,8 +15,6 @@
     font-size: calc(12px + 2vmin);
     font-weight: bold;
     color: white;
-    min-height: 20vh;
-    max-width: 80%;
   }
   
 .item {
@@ -25,6 +23,10 @@
     margin-bottom: 2ch;
     text-align: left;
     color: white;
+}
+
+.item-list{
+    margin-bottom: 100px;
 }
 
 button {

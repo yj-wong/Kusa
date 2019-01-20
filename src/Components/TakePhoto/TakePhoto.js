@@ -33,6 +33,8 @@ class TakePhoto extends Component {
 
 
         };
+
+        this.onTakePhoto = this.onTakePhoto.bind(this);
     }
     
     onCameraError (error) {
@@ -73,6 +75,7 @@ class TakePhoto extends Component {
         
         return res.json()
       }).then((data) => {
+<<<<<<< HEAD
         var score = 100;
         console.log(data)
         
@@ -116,6 +119,8 @@ class TakePhoto extends Component {
         console.log(data)
         console.log(score)
         
+        this.props.callBack(data)
+
       });
     }
    
