@@ -51,10 +51,10 @@ circle{
 a {
   color: white;
   width: 80%;
+  word-wrap:break-word
 }
 
 .button-group {
   position: relative;
   width: 100%;
-  top: 80%;
 }
