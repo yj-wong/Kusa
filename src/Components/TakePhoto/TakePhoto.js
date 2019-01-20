@@ -7,28 +7,6 @@ class TakePhoto extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            category: {
-              Paper_Saving: {
-                score: 100,
-                suggestion:"",
-              },
-              Water_Saving: {
-                score: 100,
-                suggestion:"",
-              },
-              Energy_Saving: {
-                score: 100,
-                suggestion:"",
-              },
-              Garbage_collection: {
-                score: 100,
-                suggestion:"",
-              },
-              Disposable_product_saving: {
-                score: 100,
-                suggestion:"",
-              },
-            },
            
 
 
@@ -75,50 +53,76 @@ class TakePhoto extends Component {
         
         return res.json()
       }).then((data) => {
-        var score = 100;
-        console.log(data)
         
+        console.log(data)
+        var  category =  {
+          Paper_Saving: {
+            score: 100,
+            suggestion:"",
+          },
+          Water_Saving: {
+            score: 100,
+            suggestion:"",
+          },
+          Energy_Saving: {
+            score: 100,
+            suggestion:"",
+          },
+          Garbage_collection: {
+            score: 100,
+            suggestion:"",
+          },
+          Disposable_product_saving: {
+            score: 100,
+            suggestion:"",
+          },
+        }
+       
         var allData = data.responses[0].webDetection.webEntities;
         console.log(allData)
         var allDescriptions = []
         for (var i = 0; i < allData.length; i++) {
           allDescriptions.push(allData[i].description);
         }  
+        console.log(allDescriptions)
         // Water waste
-        if(allData.includes("Water") && allData.includes("Tap") && !allData.includes("Person")){
-            this.state.Water_Saving.score -= 10 ;
-            this.state.Water_Saving.suggestion = "You are wasting water, please make sure you turn off the tap. Please take a moment and read the following article: https://www.forbes.com/sites/quora/2016/07/19/why-wasting-water-is-a-much-bigger-problem-than-you-think/#27707df5af2e"
+        if(allDescriptions.includes("Water") && allDescriptions.includes("Tap") && !allDescriptions.includes("Person")){
+            category.Water_Saving.score -= 10 ;
+            category.Water_Saving.suggestion = "You are wasting water, please make sure you turn off the tap. Please take a moment and read the following article: https://www.forbes.com/sites/quora/2016/07/19/why-wasting-water-is-a-much-bigger-problem-than-you-think/#27707df5af2e"
         }
         //Energy waste
-        if(allDescriptions.includes("Light") || allDescriptions.includes("Electricity") || allDescriptions.includes("Lamp") ||allDescriptions.includes("Electronics") ){
-            this.state.Energy_Saving.score -= 25 ;
-            this.state.Energy_Saving.suggestion = "Please make sure the lights are turned off if the room is not used by anyone else. Please take a moment and read the following article: https://www.energy.gov/energysaver/save-electricity-and-fuel"
+        if(allDescriptions.includes("Light") || allDescriptions.includes("Electricity") || allDescriptions.includes("Lamp") || allDescriptions.includes("Electronics") ){
+            category.Energy_Saving.score -= 25 ;
+            category.Energy_Saving.suggestion = "Please make sure the lights are turned off if the room is not used by anyone else. Please take a moment and read the following article: https://www.energy.gov/energysaver/save-electricity-and-fuel"
  
         }
 
         //Paper waste
         if(allDescriptions.includes("Paper") || allDescriptions.includes("Cloth Napkins") ){
-          this.state.Paper_Saving.score -= 5 ;
-          this.state.Paper_Saving.suggestion = "You are using disposable paper product, please avoid using these if possisble to conserve our forest. Please take a moment and read the following article: http://www.theworldcounts.com/stories/Environmental_Impact_of_Paper_Production"
+          category.Paper_Saving.score -= 5 ;
+          category.Paper_Saving.suggestion = "You are using disposable paper product, please avoid using these if possisble to conserve our forest. Please take a moment and read the following article: http://www.theworldcounts.com/stories/Environmental_Impact_of_Paper_Production"
 
         }
         //disposible utensils
-        if(allDescriptions.includes("Disposable") || allDescriptions.includes("Aluminum foil") || allDescriptions.includes("Aluminum Pans") ){
-          this.state.Water_Saving.score -= 15 ;
-          this.state.Water_Saving.suggestion = "You should stop using disposable products and please make sure they are all recycled. Please take a moment and read the following article: https://www.dawn.com/news/1052157"
+        if(allDescriptions.includes("Disposable") || allDescriptions.includes("Aluminum foil") || allDescriptions.includes("Aluminum Pans") || allDescriptions.includes("Energy drink") || allDescriptions.includes("Fizzy Drinks") ){
+          category.Disposable_product_saving.score -= 15 ;
+          category.Disposable_product_saving.suggestion = "You should stop using disposable products and please make sure they are all recycled. Please take a moment and read the following article: https://www.dawn.com/news/1052157"
 
         }
         //garbage collection
         if((allDescriptions.includes("Waste") || allDescriptions.includes("Garbage")) && !allDescriptions.includes("Garbage Can") ){
-          this.state.Garbage_collection.score -= 15 ;
-          this.state.Garbage_collection.suggestion = "Garbage should be collected, but it seems they are not. Please take a moment and read the following article: https://www.linkedin.com/pulse/importance-waste-management-recycling-dee-mohammed/"
+          category.Garbage_collection.score -= 15 ;
+          category.Garbage_collection.suggestion = "Garbage should be collected, but it seems they are not. Please take a moment and read the following article: https://www.linkedin.com/pulse/importance-waste-management-recycling-dee-mohammed/"
 
         }
         
         console.log(data)
-        console.log(score)
-        
-        this.props.callBack(data)
+        console.log(category.Water_Saving.score)
+        console.log(category.Energy_Saving.score)
+        console.log(category.Paper_Saving.score)
+        console.log(category.Disposable_product_saving.score)
+        console.log(category.Garbage_collection.score)
+        this.props.callBack(category)
 
       });
     }
