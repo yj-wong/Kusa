@@ -118,7 +118,7 @@ class TakePhoto extends Component {
         console.log(data)
         console.log(score)
         
-        this.props.callBack(this.prop.state)
+        this.props.callBack(category)
 
       });
     }
