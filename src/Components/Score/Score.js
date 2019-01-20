@@ -3,15 +3,15 @@ import './Score.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class Score extends Component {
-  toScan() {
+  toFeedback() {
   }
 
   render() {
     return (
       <div className="Score">
         <svg height="300" width="300">
-          <circle cx="150" cy="150" r="100" stroke="#51c5cf" stroke-width="3" fill="transparent" />
-          <text x="50%" y="50%" text-anchor="middle" stroke="#51c5cf" stroke-width="2px" font-size="75px" fill="white" dy=".3em">52%</text>
+          <circle cx="150" cy="150" r="100" stroke="#51c5cf" strokeWidth="3" fill="transparent" />
+          <text x="50%" y="50%" textAnchor="middle" stroke="#51c5cf" strokeWidth="2px" fontSize="75px" fill="white" dy=".3em">52%</text>
           Sorry, your browser does not support inline SVG.  
         </svg> 
         <header className="Score-header">
@@ -25,7 +25,7 @@ class Score extends Component {
           <button className="homebtn" onClick={this.share}>Share</button>
         </div>
         <div>
-          <button ClassName="homebtn" onClick={this.toHome}>Back</button>
+          <button className="homebtn" onClick={this.props.callBack}>Home</button>
         </div>
       </div>
     );

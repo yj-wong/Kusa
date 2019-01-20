@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Feedback.css';
 import home from './Hotel-suite-living-room.jpg';
+import logo from './kusalogoblack.png';
 import Score from '../Score/Score';
 
 class Feedback extends Component {
@@ -52,8 +53,32 @@ class Feedback extends Component {
 			final_view = <div />
 		}
 
+<<<<<<< HEAD
 		return final_view;
 	}
+=======
+
+    
+    render() {
+        return (
+            <div className="Feedback">
+                <img src={logo} alt="logo" width="60%"/>
+                <header className="Feedback-header">
+                    Items Recognized:
+                </header>
+                <div className="items"> 
+                    <Items items={this.state.items}/>
+                </div>
+                <div>
+                    <button onClick={this.toOverall}>Get Overall Score</button>
+                </div>
+                <div>
+                    <button onClick={this.props.callBack}>Home</button>
+                </div>
+            </div>           
+        );
+    }
+>>>>>>> aa16a06222d6450a825917f95d67f558f27b34cd
 }
 
 
@@ -79,6 +104,7 @@ class Items extends Component {
 	constructor(props){
 		super(props);
 
+<<<<<<< HEAD
 	}
 	
 
@@ -102,6 +128,36 @@ class Items extends Component {
 		//     <p>there should be something</p>
 		//     )
 	}
+=======
+    }
+
+    toDetail(){
+        
+    }
+    
+
+    render() {
+        const items = this.props.items;
+        const itemList = items.map(item => {
+            return( 
+                <div className="item" key={item.id}>
+                    <p>{ item.type }</p>
+                    <p>Score: { item.score }</p>
+                    <button onClick={this.toDetail}>Details</button>
+                </div>
+            )
+        })
+            
+        return(
+            <div className="item-list">
+            { itemList }
+            </div>
+        )
+        // return(
+        //     <p>there should be something</p>
+        //     )
+    }
+>>>>>>> aa16a06222d6450a825917f95d67f558f27b34cd
 }
 
 export default Feedback;
