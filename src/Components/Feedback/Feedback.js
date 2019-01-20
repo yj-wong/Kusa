@@ -8,8 +8,10 @@ import App from '../../App.js';
 class Feedback extends Component {
     constructor(props) {
         super(props);
-        console.log('!')
-        console.log(props.categories);
+        console.log(props.categories.image);
+        if(this.props.categories.image == null){
+            this.props.categories.image = logo
+        }
         var lst = undefined
         if (props.categories && props.categories.Paper_Saving) {
             lst = [
@@ -45,12 +47,20 @@ class Feedback extends Component {
                 },
             ];
         } else {
-            lst = []
+            lst = [
+                { 
+                    type: ' Overall Feedback', 
+                    score: 100, 
+										suggestion: "Please talk to our Online Chat Bot or talk to our 24 hours Online Assistant:1234566", 
+										link: null
+                }
+            ]
         }
         
         this.state = {
             current_page: 'feedback_view',
             items: lst,
+            current_img: props.categories,
             category_detail: undefined
         }
         
@@ -80,7 +90,7 @@ class Feedback extends Component {
         if (this.state.current_page == 'feedback_view') {
             final_view = (
                 <div className="Feedback">
-                    <img src={logo} alt="logo" width="60%"/>
+                    <img src={this.props.categories.image} alt="logo" width="60%"/>
                     <header className="Feedback-header">
                         Items Recognized:
                     </header>
