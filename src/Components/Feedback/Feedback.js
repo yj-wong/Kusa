@@ -17,9 +17,14 @@ class Feedback extends Component {
         }
         
         this.toOverall = this.toOverall.bind(this);
+        this.toDetail = this.toDetail.bind(this);
     }
 
     toOverall() {
+        this.setState({current_page: 'score_view'})
+    }
+
+    toDetail(category){
         this.setState({current_page: 'score_view'})
     }
 
@@ -28,12 +33,12 @@ class Feedback extends Component {
         if (this.state.current_page == 'feedback_view') {
             final_view = (
                 <div className="Feedback">
-                    <img src={home} alt="home" width="60%"/>
+                    <img src={logo} alt="logo" width="60%"/>
                     <header className="Feedback-header">
                         Items Recognized:
                     </header>
                     <div className="items"> 
-                        <Items items={this.state.items}/>
+                        <Items items={this.state.items} callBack={this.toDetail}/>
                     </div>
                     <div>
                         <button onClick={this.toOverall}>Get Overall Score</button>
@@ -80,10 +85,6 @@ class Items extends Component {
         super(props);
 
     }
-
-    toDetail(){
-        
-    }
     
 
     render() {
@@ -93,7 +94,7 @@ class Items extends Component {
                 <div className="item" key={item.id}>
                     <p>{ item.type }</p>
                     <p>Score: { item.score }</p>
-                    <button onClick={this.toDetail}>Details</button>
+                    <button onClick={this.props.callBack}>Details</button>
                 </div>
             )
         })
