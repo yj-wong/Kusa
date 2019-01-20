@@ -43,7 +43,7 @@ class Score extends Component {
         <button className="homebtn" onClick={this.share}>Share</button>
       </div>
       <div>
-        <button className="homebtn" onClick={this.toHome}>Home</button>
+        <button className="homebtn" onClick={this.toFeedback}>Home</button>
       </div>
     </div>)
     } else if (this.state.current_page == 'feedback_view') {
