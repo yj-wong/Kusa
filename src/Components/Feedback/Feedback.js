@@ -3,21 +3,55 @@ import './Feedback.css';
 import home from './Hotel-suite-living-room.jpg';
 import logo from './kusalogoblack.png';
 import Score from '../Score/Score';
+import App from '../../App.js';
 
 class Feedback extends Component {
     constructor(props) {
         super(props);
+        console.log('!')
+        console.log(props.categories);
+        var lst = undefined
+        if (props.categories && props.categories.Paper_Saving) {
+            lst = [
+                { 
+                    type: 'Paper Saving', 
+                    score: props.categories.Paper_Saving.score, 
+                    suggestion: props.categories.Paper_Saving.suggestion, 
+                },
+                { 
+                    type: 'Water Saving', 
+                    score: props.categories.Water_Saving.score, 
+                    suggestion: props.categories.Water_Saving.suggestion, 
+                },
+                { 
+                    type: 'Energy Saving', 
+                    score: props.categories.Energy_Saving.score, 
+                    suggestion: props.categories.Energy_Saving.suggestion, 
+                },
+                { 
+                    type: 'Garbage Collection', 
+                    score: props.categories.Garbage_collection.score, 
+                    suggestion: props.categories.Garbage_collection.suggestion, 
+                },
+                { 
+                    type: 'Disposable Product', 
+                    score: props.categories.Disposable_product_saving.score, 
+                    suggestion: props.categories.Disposable_product_saving.suggestion, 
+                },
+            ];
+        } else {
+            lst = []
+        }
+        
         this.state = {
             current_page: 'feedback_view',
-
-            items: [
-                { type: 'plastic bottles', score: 3, suggestion: "", id: 1 },
-                { type: 'running water faucet', score: 1, suggestion: "", id: 2 }
-            ]
+            items: lst,
+            category_detail: undefined
         }
         
         this.toOverall = this.toOverall.bind(this);
         this.toDetail = this.toDetail.bind(this);
+        this.toHome = this.toHome.bind(this);
     }
 
     toOverall() {
@@ -25,7 +59,15 @@ class Feedback extends Component {
     }
 
     toDetail(category){
-        this.setState({current_page: 'score_view'})
+        console.log(category)
+        this.setState({
+            category_detail: category,
+            current_page: 'score_view'
+        })
+    }
+
+    toHome() {
+        this.setState({current_page: 'main_view'})
     }
 
     render() {
@@ -41,18 +83,19 @@ class Feedback extends Component {
                         <Items items={this.state.items} callBack={this.toDetail}/>
                     </div>
                     <div>
-                        <button onClick={this.toOverall}>Get Overall Score</button>
-                    </div>
-                    <div>
-                        <button onClick={this.props.callBack}>Home</button>
+                        <button onClick={this.toHome}>Home</button>
                     </div>
                 </div>           
             ); 
         } else if (this.state.current_page == 'score_view') {
-      final_view = (
-        <Score callBack={this.toHome} />
+            final_view = (
+                <Score callBack={this.toHome} categories={this.props.categories} category_detail={this.state.category_detail}/>
             );
-        } 
+        } else if (this.state.current_page == 'main_view') {
+            final_view = (
+                <App />
+            );
+        }
         else {
         console.log('Something went wrong.')
             final_view = <div />
@@ -61,24 +104,6 @@ class Feedback extends Component {
     }
 
 }
-
-// function Items(props) {
-//     const items = props.items;
-
-//     const itemList = items.map((item) => {
-//         <div className="item">
-//             <div>Type: { item.type }</div>
-//             <div>Amount: { item.amount }</div>
-//         </div>
-//     });
-            
-//     return(
-//         <div className="item-list">
-//         { itemList }
-//         </div>
-//     );
-// }
-
 class Items extends Component {
 
     constructor(props){
@@ -93,8 +118,8 @@ class Items extends Component {
             return( 
                 <div className="item" key={item.id}>
                     <p>{ item.type }</p>
-                    <p>Score: { item.score }</p>
-                    <button onClick={this.props.callBack}>Details</button>
+                    <button onClick={() => this.props.callBack(item) } >Details</button>
+                    <p className="scoretext">Score: { item.score }</p>
                 </div>
             )
         })

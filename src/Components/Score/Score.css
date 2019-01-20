@@ -23,7 +23,6 @@
 
 .Score-header p{
   font-family: "Verdana";
-  font-size: 3vh;
 }
 
 .Score-link {
@@ -46,6 +45,6 @@ circle{
 .homebtn{
   display: inline;
   float: left;
-  margin-left: 30%;
+  margin-left: 28%;
   margin-right: -25%;
 }

@@ -12,6 +12,9 @@ class Score extends Component {
     };
     this.toFeedback = this.toFeedback.bind(this);
     this.toHome = this.toHome.bind(this);
+
+    console.log('[] [] []')
+    console.log(props.category_detail)
   }
 
   toFeedback() {  
@@ -29,11 +32,11 @@ class Score extends Component {
       final_view = (<div className="Score">
       <svg height="300" width="300">
         <circle cx="150" cy="150" r="100" stroke="#51c5cf" strokeWidth="3" fill="transparent" />
-        <text x="50%" y="50%" textAnchor="middle" stroke="#51c5cf" strokeWidth="2px" fontSize="75px" fill="white" dy=".3em">52%</text>
+        <text x="50%" y="50%" textAnchor="middle" stroke="#51c5cf" strokeWidth="2px" fontSize="75px" fill="white" dy=".3em">{this.props.category_detail.score}%</text>
         Sorry, your browser does not support inline SVG.  
       </svg> 
       <header className="Score-header">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+        <p>{this.props.category_detail.suggestion}</p>
       </header>
 
       <div>
@@ -43,12 +46,12 @@ class Score extends Component {
         <button className="homebtn" onClick={this.share}>Share</button>
       </div>
       <div>
-        <button className="homebtn" onClick={this.toFeedback}>Home</button>
+        <button className="homebtn" onClick={this.toHome}>Home</button>
       </div>
     </div>)
     } else if (this.state.current_page == 'feedback_view') {
       final_view = (
-      <Feedback/>
+      <Feedback onClick={this.toHome} categories={this.props.categories}/>
       )
     } else if (this.state.current_page == 'main_view') {
       final_view = (

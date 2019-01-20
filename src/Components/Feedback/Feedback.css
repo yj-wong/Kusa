@@ -51,6 +51,11 @@ button {
     vertical-align: middle;
     margin-top: 0;
 }
+
+.scoretext{
+    float: right;
+    margin-top: 0;
+}
   
   
   .score {

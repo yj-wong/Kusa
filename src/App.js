@@ -17,9 +17,12 @@ class App extends Component {
     this.setState({current_page: 'main_view'})
   }
 
-  toFeedback(data=undefined) {
-    console.log(data)
-    this.setState({current_page: 'feedback_view'})    
+  toFeedback(categories=null) {
+    console.log(categories)
+    this.setState({
+      current_page: 'feedback_view',
+      current_categories: categories
+    })    
   }
 
   toTakePhoto() {
@@ -30,6 +33,7 @@ class App extends Component {
     super(props);
     this.state = {
       current_page: 'main_view',
+      current_categories: null,
     };
 
     this.toHome = this.toHome.bind(this);
@@ -65,7 +69,7 @@ class App extends Component {
       );
     } else if (this.state.current_page == 'feedback_view') {
       final_view = (
-        <Feedback callBack={this.toHome} />
+        <Feedback callBack={this.toHome} categories={this.state.current_categories} />
       );
     } else {
       console.log('Something went wrong.')
