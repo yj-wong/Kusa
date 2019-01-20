@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Feedback.css';
 import home from './Hotel-suite-living-room.jpg';
+import Score from '../Score/Score';
 
 class Feedback extends Component {
     constructor(props) {
@@ -8,8 +9,8 @@ class Feedback extends Component {
         this.state = {
 
         items: [
-          { type: 'plastic bottles', amount: 3, id: 1 },
-          { type: 'running water faucet', amount: 1, id: 2 }
+          { type: 'plastic bottles', score: 3, suggestion: "", id: 1 },
+          { type: 'running water faucet', score: 1, suggestion: "", id: 2 }
         ]
       }
     }
@@ -30,7 +31,7 @@ class Feedback extends Component {
                     <Items items={this.state.items}/>
                 </div>
                 <div>
-                    <button onClick={this.toOverall}>Get Overall Feedback</button>
+                    <button onClick={this.toOverall}>Get Overall Score</button>
                 </div>
                 <div>
                     <button onClick={this.props.callBack}>Home</button>

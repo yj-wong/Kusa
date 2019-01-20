@@ -17,7 +17,8 @@ class App extends Component {
     this.setState({current_page: 'main_view'})
   }
 
-  toFeedback() {
+  toFeedback(data=undefined) {
+    console.log(data)
     this.setState({current_page: 'feedback_view'})    
   }
 
@@ -64,8 +65,7 @@ class App extends Component {
     );
     
     let final_view = undefined
-    console.log(this.state)
-    console.log(123456)
+    
     if (!this.state) {
       final_view = <div />
     } else if (this.state.current_page == 'main_view') {
