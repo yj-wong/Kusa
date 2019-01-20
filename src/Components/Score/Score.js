@@ -37,6 +37,7 @@ class Score extends Component {
       </svg> 
       <header className="Score-header">
         <p>{this.props.category_detail.suggestion}</p>
+        <a href={this.props.category_detail.link}>{this.props.category_detail.link}</a>
       </header>
 
       <div>

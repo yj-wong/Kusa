@@ -16,27 +16,32 @@ class Feedback extends Component {
                 { 
                     type: 'Paper Saving', 
                     score: props.categories.Paper_Saving.score, 
-                    suggestion: props.categories.Paper_Saving.suggestion, 
+										suggestion: props.categories.Paper_Saving.suggestion, 
+										link: props.categories.Paper_Saving.link
                 },
                 { 
                     type: 'Water Saving', 
                     score: props.categories.Water_Saving.score, 
-                    suggestion: props.categories.Water_Saving.suggestion, 
+										suggestion: props.categories.Water_Saving.suggestion, 
+										link: props.categories.Water_Saving.link
                 },
                 { 
                     type: 'Energy Saving', 
                     score: props.categories.Energy_Saving.score, 
-                    suggestion: props.categories.Energy_Saving.suggestion, 
+										suggestion: props.categories.Energy_Saving.suggestion, 
+										link: props.categories.Energy_Saving.link
                 },
                 { 
                     type: 'Garbage Collection', 
                     score: props.categories.Garbage_collection.score, 
-                    suggestion: props.categories.Garbage_collection.suggestion, 
+										suggestion: props.categories.Garbage_collection.suggestion, 
+										link: props.categories.Garbage_collection.link
                 },
                 { 
                     type: 'Disposable Product', 
                     score: props.categories.Disposable_product_saving.score, 
-                    suggestion: props.categories.Disposable_product_saving.suggestion, 
+										suggestion: props.categories.Disposable_product_saving.suggestion, 
+										link: props.categories.Disposable_product_saving.link
                 },
             ];
         } else {

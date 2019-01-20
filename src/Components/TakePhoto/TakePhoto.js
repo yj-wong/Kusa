@@ -113,7 +113,8 @@ class TakePhoto extends Component {
         for (i = 0; i < water_list.length; i++) {
           if (allDescriptions.includes(water_list[i])) {
             category.Water_Saving.score -= 10 ;
-            category.Water_Saving.suggestion = "You are wasting water, please make sure you turn off the tap. Please take a moment and read the following article: https://www.forbes.com/sites/quora/2016/07/19/why-wasting-water-is-a-much-bigger-problem-than-you-think/#27707df5af2e"
+            category.Water_Saving.suggestion = "You are wasting water, please make sure you turn off the tap. Please take a moment and read the following article: "
+            category.Water_Saving.link = "https://www.forbes.com/sites/quora/2016/07/19/why-wasting-water-is-a-much-bigger-problem-than-you-think/#27707df5af2e"
           }
         }
 
@@ -122,7 +123,8 @@ class TakePhoto extends Component {
         for (i = 0; i < energy_list.length; i++) {
           if (allDescriptions.includes(energy_list[i])) {
             category.Energy_Saving.score -= 25 ;
-            category.Energy_Saving.suggestion = "Please make sure the lights are turned off if the room is not used by anyone else. Please take a moment and read the following article: https://www.energy.gov/energysaver/save-electricity-and-fuel"
+            category.Energy_Saving.suggestion = "Please make sure the lights are turned off if the room is not used by anyone else. Please take a moment and read the following article: "
+            category.Energy_Saving.link = "https://www.energy.gov/energysaver/save-electricity-and-fuel"
           }
         }
 
@@ -130,7 +132,8 @@ class TakePhoto extends Component {
         for (i = 0; i < paper_list.length; i++) {
           if (allDescriptions.includes(energy_list[i])) {
             category.Paper_Saving.score -= 10 ;
-            category.Paper_Saving.suggestion = "You are using disposable paper product, please avoid using these if possisble to conserve our forest. Please take a moment and read the following article: http://www.theworldcounts.com/stories/Environmental_Impact_of_Paper_Production"
+            category.Paper_Saving.suggestion = "You are using disposable paper product, please avoid using these if possisble to conserve our forest. Please take a moment and read the following article: "
+            category.Paper_Saving.link = "http://www.theworldcounts.com/stories/Environmental_Impact_of_Paper_Production"
           }
         }
 
@@ -138,14 +141,16 @@ class TakePhoto extends Component {
         for (i = 0; i < disposable_list.length; i++) {
           if (allDescriptions.includes(disposable_list[i])) {
             category.Disposable_product_saving.score -= 15 ;
-            category.Disposable_product_saving.suggestion = "You should stop using disposable products and please make sure they are all recycled. Please take a moment and read the following article: https://www.dawn.com/news/1052157"
+            category.Disposable_product_saving.suggestion = "You should stop using disposable products and please make sure they are all recycled. Please take a moment and read the following article: "
+            category.Disposable_product_saving.link = "https://www.dawn.com/news/1052157"
           }
         }
         //garbage collection
         for (i = 0; i < garbage_list.length; i++) {
           if (allDescriptions.includes(garbage_list[i])) {
             category.Garbage_collection.score -= 15 ;
-            category.Garbage_collection.suggestion = "Garbage should be collected, but it seems they are not. Please take a moment and read the following article: https://www.linkedin.com/pulse/importance-waste-management-recycling-dee-mohammed/"
+            category.Garbage_collection.suggestion = "Garbage should be collected, but it seems they are not. Please take a moment and read the following article: "
+            category.Garbage_collection.link = "https://www.linkedin.com/pulse/importance-waste-management-recycling-dee-mohammed/"
           }
         }
         
