@@ -18,15 +18,20 @@
   }
   
 .item {
-    margin-left: 5ch;
     margin-top: 5vh;
     margin-bottom: 2ch;
     text-align: left;
     color: white;
 }
 
+.item p{
+    display: inline;
+    margin-left: 7%;
+    vertical-align: middle;
+}
+
 .item-list{
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 button {
@@ -36,7 +41,16 @@ button {
     border: none;
     margin: 2%;
     box-shadow: 0 5px 10px 0 rgba(255, 255, 255, 0.10);
+    margin-top: 5%;
   }
+
+.item button{
+    padding: 2% 3%;
+    margin-right: 7%;
+    float: right;
+    vertical-align: middle;
+    margin-top: 0;
+}
   
   
   .score {

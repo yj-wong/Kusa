@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Feedback.css';
 import home from './Hotel-suite-living-room.jpg';
+import logo from './kusalogoblack.png';
 import Score from '../Score/Score';
 
 class Feedback extends Component {
@@ -19,11 +20,12 @@ class Feedback extends Component {
 
     }
 
+
     
     render() {
         return (
             <div className="Feedback">
-                <img src={home} alt="home" width="60%"/>
+                <img src={logo} alt="logo" width="60%"/>
                 <header className="Feedback-header">
                     Items Recognized:
                 </header>
@@ -65,6 +67,10 @@ class Items extends Component {
         super(props);
 
     }
+
+    toDetail(){
+        
+    }
     
 
     render() {
@@ -72,8 +78,9 @@ class Items extends Component {
         const itemList = items.map(item => {
             return( 
                 <div className="item" key={item.id}>
-                <div>Type: { item.type }</div>
-                <div>Amount: { item.amount }</div>
+                    <p>{ item.type }</p>
+                    <p>Score: { item.score }</p>
+                    <button onClick={this.toDetail}>Details</button>
                 </div>
             )
         })

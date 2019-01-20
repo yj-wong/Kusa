@@ -40,40 +40,33 @@ class App extends Component {
 
   render() {
 
-    let main_view = (
-      <div className="App">
-       <img src={logo} alt="logo" width="60%"/>
-        <header className="App-header">
-          <p>Our daily habits may affect the environment in ways that we might not notice.</p>
-          <p>Start Scanning to learn more about your habits.</p>
-        </header>
-        <div>
-          <button onClick={this.toTakePhoto}>Start Scanning</button>
-        </div>
-        <div>
-          <button onClick={this.toFeedback}>Get Feedback</button>
-        </div>
-      </div>
-    );
-
-    let take_photo_view = (
-      <TakePhoto callBack={this.toFeedback} />
-    );
-
-    let feedback_view = (
-      <Feedback callBack={this.toHome} />
-    );
-    
-    let final_view = undefined
-    
+    let final_view = undefined    
     if (!this.state) {
       final_view = <div />
     } else if (this.state.current_page == 'main_view') {
-      final_view = main_view;
+      final_view = (
+        <div className="App">
+         <img src={logo} alt="logo" width="60%"/>
+          <header className="App-header">
+            <p>Our daily habits may affect the environment in ways that we might not notice.</p>
+            <p>Start Scanning to learn more about your habits.</p>
+          </header>
+          <div>
+            <button onClick={this.toTakePhoto}>Start Scanning</button>
+          </div>
+          <div>
+            <button onClick={this.toFeedback}>Get Feedback</button>
+          </div>
+        </div>
+      );
     } else if (this.state.current_page == 'take_photo_view') {
-      final_view = take_photo_view;
+      final_view = (
+        <TakePhoto callBack={this.toFeedback} />
+      );
     } else if (this.state.current_page == 'feedback_view') {
-      final_view = feedback_view;
+      final_view = (
+        <Feedback callBack={this.toHome} />
+      );
     } else {
       console.log('Something went wrong.')
       final_view = <div />
