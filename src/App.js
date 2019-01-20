@@ -55,12 +55,14 @@ class App extends Component {
             <p>Our daily habits may affect the environment in ways that we might not notice.</p>
             <p>Start Scanning to learn more about your habits.</p>
           </header>
-          <div>
-            <button onClick={this.toTakePhoto}>Start Scanning</button>
-          </div>
-          <div>
-            <button onClick={this.toFeedback}>Get Feedback</button>
-          </div>
+          <div className="button-group">
+            <div>
+              <button onClick={this.toTakePhoto}>Start Scanning</button>
+            </div>
+            <div>
+              <button onClick={this.toFeedback}>Get Feedback</button>
+            </div>
+          </div>     
         </div>
       );
     } else if (this.state.current_page == 'take_photo_view') {

@@ -31,24 +31,30 @@
 
 button {
   color: white;
-  background-color: rgb(61, 100, 199);
+  background-color: rgba(255, 255, 255, 0.2);
   padding: 2% 5%;
   border: none;
   margin: 2%;
   box-shadow: 0 5px 10px 0 rgba(255, 255, 255, 0.10);
+  border-radius: 10px;
+  width: 40%;
 }
+
+button:active {
+  background-color: rgba(255, 255, 255, 0.1);
+} 
 
 circle{
   margin-top: 100px;
 }
 
-.homebtn{
-  display: inline;
-  float: left;
-  margin-left: 28%;
-  margin-right: -25%;
+a {
+  color: white;
+  width: 80%;
 }
 
-a {
-  color: white
+.button-group {
+  position: relative;
+  width: 100%;
+  top: 80%;
 }

@@ -39,16 +39,11 @@ class Score extends Component {
         <p>{this.props.category_detail.suggestion}</p>
         <a href={this.props.category_detail.link}>{this.props.category_detail.link}</a>
       </header>
-
-      <div>
-        <button onClick={this.toFeedback}>Overall Suggestion</button>
-      </div>
-      <div>
-        <button className="homebtn" onClick={this.share}>Share</button>
-      </div>
-      <div>
-        <button className="homebtn" onClick={this.toHome}>Home</button>
-      </div>
+        <div className="button-group">
+          <div><button onClick={this.toFeedback}>Overall Suggestion</button></div>     
+          <div><button className="homebtn" onClick={this.share}>Share</button></div>
+          <div><button className="homebtn" onClick={this.toHome}>Home</button></div>
+        </div>
     </div>)
     } else if (this.state.current_page == 'feedback_view') {
       final_view = (

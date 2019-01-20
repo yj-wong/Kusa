@@ -30,15 +30,22 @@ img{
   margin-bottom: 200px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 button {
   color: white;
-  background-color: rgb(61, 100, 199);
+  background-color: rgba(255, 255, 255, 0.2);
   padding: 2% 5%;
   border: none;
   margin: 2%;
   box-shadow: 0 5px 10px 0 rgba(255, 255, 255, 0.10);
+  border-radius: 10px;
+}
+
+button:active {
+  background-color: rgba(255, 255, 255, 0.1);
+} 
+
+.button-group {
+  position: relative;
+  width: 100%;
+  top: 80%;
 }

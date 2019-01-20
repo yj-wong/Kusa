@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Feedback.css';
 import home from './Hotel-suite-living-room.jpg';
 import logo from './kusalogoblack.png';
+import icon1 from './details-icon.png';
 import Score from '../Score/Score';
 import App from '../../App.js';
 
@@ -17,31 +18,36 @@ class Feedback extends Component {
                     type: 'Paper Saving', 
                     score: props.categories.Paper_Saving.score, 
 										suggestion: props.categories.Paper_Saving.suggestion, 
-										link: props.categories.Paper_Saving.link
+										link: props.categories.Paper_Saving.link,
+										id: 1
                 },
                 { 
                     type: 'Water Saving', 
                     score: props.categories.Water_Saving.score, 
 										suggestion: props.categories.Water_Saving.suggestion, 
-										link: props.categories.Water_Saving.link
+										link: props.categories.Water_Saving.link,
+										id: 2
                 },
                 { 
                     type: 'Energy Saving', 
                     score: props.categories.Energy_Saving.score, 
 										suggestion: props.categories.Energy_Saving.suggestion, 
-										link: props.categories.Energy_Saving.link
+										link: props.categories.Energy_Saving.link,
+										id: 3
                 },
                 { 
                     type: 'Garbage Collection', 
                     score: props.categories.Garbage_collection.score, 
 										suggestion: props.categories.Garbage_collection.suggestion, 
-										link: props.categories.Garbage_collection.link
+										link: props.categories.Garbage_collection.link,
+										id: 4
                 },
                 { 
                     type: 'Disposable Product', 
                     score: props.categories.Disposable_product_saving.score, 
 										suggestion: props.categories.Disposable_product_saving.suggestion, 
-										link: props.categories.Disposable_product_saving.link
+										link: props.categories.Disposable_product_saving.link,
+										id: 5
                 },
             ];
         } else {
@@ -87,7 +93,7 @@ class Feedback extends Component {
                     <div className="items"> 
                         <Items items={this.state.items} callBack={this.toDetail}/>
                     </div>
-                    <div>
+                    <div className="button-group">
                         <button onClick={this.toHome}>Home</button>
                     </div>
                 </div>           
@@ -116,15 +122,18 @@ class Items extends Component {
 
     }
     
-
     render() {
         const items = this.props.items;
         const itemList = items.map(item => {
             return( 
                 <div className="item" key={item.id}>
-                    <p>{ item.type }</p>
-                    <button onClick={() => this.props.callBack(item) } >Details</button>
-                    <p className="scoretext">Score: { item.score }</p>
+									<table className="item-table">
+										<tr>
+											<td className="typetext">{item.type }</td>
+											<td className="scoretext">Score: { item.score }</td>
+											<td className="buttontext"><button className="detail-button" onClick={() => this.props.callBack(item) } ><img className="icon" src={icon1} width="20px"/></button></td>
+										</tr>
+									</table>    
                 </div>
             )
         })

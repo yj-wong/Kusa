@@ -7,19 +7,17 @@
     min-height: 100vh;
   }
   
-  .Feedback-header {
+.Feedback-header {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: calc(12px + 2vmin);
-    font-weight: bold;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: white;
   }
   
 .item {
-    margin-top: 5vh;
-    margin-bottom: 2ch;
     text-align: left;
     color: white;
 }
@@ -31,18 +29,24 @@
 }
 
 .item-list{
-    margin-bottom: 50px;
 }
+
+.detail-button {
+    /* border: 1px solid black; */
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: none;
+    padding: 5px;
+  }
 
 button {
     color: white;
-    background-color: rgb(61, 100, 199);
+    background-color: rgba(255, 255, 255, 0.2);
     padding: 2% 5%;
     border: none;
     margin: 2%;
     box-shadow: 0 5px 10px 0 rgba(255, 255, 255, 0.10);
-    margin-top: 5%;
-  }
+    border-radius: 10px;
+}
 
 .item button{
     padding: 2% 3%;
@@ -53,12 +57,10 @@ button {
 }
 
 .scoretext{
-    float: right;
-    margin-top: 0;
 }
   
   
-  .score {
+.score {
         font-size: 5vh;
         color: white;
   }
@@ -70,3 +72,28 @@ p{
 img{
     margin-bottom: 20px;
 }
+
+.item-table {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    /* border: 1px solid black; */
+}
+
+.typetext {
+    width: 50%;
+}
+
+.buttontext {
+    width: 10%;
+}
+
+.icon {
+    padding-top: 75%;
+}
+
+.button-group {
+    position: relative;
+    width: 100%;
+    top: 80%;
+  }
