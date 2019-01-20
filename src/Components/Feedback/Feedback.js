@@ -8,41 +8,54 @@ class Feedback extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            current_page: 'feedback_view',
 
-        items: [
-          { type: 'plastic bottles', score: 3, suggestion: "", id: 1 },
-          { type: 'running water faucet', score: 1, suggestion: "", id: 2 }
-        ]
-      }
+            items: [
+                { type: 'plastic bottles', score: 3, suggestion: "", id: 1 },
+                { type: 'running water faucet', score: 1, suggestion: "", id: 2 }
+            ]
+        }
+        
+        this.toOverall = this.toOverall.bind(this);
     }
 
-    getScore() {
-
+    toOverall() {
+        this.setState({current_page: 'score_view'})
     }
 
-
-    
     render() {
-        return (
-            <div className="Feedback">
-                <img src={logo} alt="logo" width="60%"/>
-                <header className="Feedback-header">
-                    Items Recognized:
-                </header>
-                <div className="items"> 
-                    <Items items={this.state.items}/>
-                </div>
-                <div>
-                    <button onClick={this.toOverall}>Get Overall Score</button>
-                </div>
-                <div>
-                    <button onClick={this.props.callBack}>Home</button>
-                </div>
-            </div>           
-        );
+        let final_view = undefined    
+        if (this.state.current_page == 'feedback_view') {
+            final_view = (
+                <div className="Feedback">
+                    <img src={home} alt="home" width="60%"/>
+                    <header className="Feedback-header">
+                        Items Recognized:
+                    </header>
+                    <div className="items"> 
+                        <Items items={this.state.items}/>
+                    </div>
+                    <div>
+                        <button onClick={this.toOverall}>Get Overall Score</button>
+                    </div>
+                    <div>
+                        <button onClick={this.props.callBack}>Home</button>
+                    </div>
+                </div>           
+            ); 
+        } else if (this.state.current_page == 'score_view') {
+      final_view = (
+        <Score callBack={this.toHome} />
+            );
+        } 
+        else {
+        console.log('Something went wrong.')
+            final_view = <div />
+        }
+        return final_view;
     }
-}
 
+}
 
 // function Items(props) {
 //     const items = props.items;
