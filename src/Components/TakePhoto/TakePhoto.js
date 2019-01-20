@@ -113,9 +113,12 @@ class TakePhoto extends Component {
         var allData = data.responses[0].webDetection.webEntities;
         console.log(allData)
         var allDescriptions = []
-        for (var i = 0; i < allData.length; i++) {
-          allDescriptions.push(allData[i].description);
-        }  
+        if(allData != undefined){
+          for (var i = 0; i < allData.length; i++) {
+            allDescriptions.push(allData[i].description);
+          }  
+        }
+       
 
         var water_list = [
           'Water', 'Water fixture', 'Tap', 'Tap water', 'Plumbing', 'Plumbing fixture', 'Drop', 'Fountain', 'Fluid', 'Faucet'
